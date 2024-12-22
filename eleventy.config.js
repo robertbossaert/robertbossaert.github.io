@@ -3,7 +3,7 @@ import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 
 export default function (eleventyConfig) {
   eleventyConfig.setServerOptions({
-    watch: ['docs/**/*.css'],
+    watch: ['_site/**/*.css'],
   });
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
@@ -20,8 +20,7 @@ export default function (eleventyConfig) {
 
   return {
     dir: {
-      input: 'src',
-      output: 'docs'
+      input: 'src'
     },
   };
 };
