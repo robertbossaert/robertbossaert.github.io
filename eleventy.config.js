@@ -1,9 +1,12 @@
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 
 export default function (eleventyConfig) {
   eleventyConfig.setServerOptions({
-    watch: ['_site/**/*.css'],
+    watch: ['docs/**/*.css'],
   });
+
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     extensions: "html",
@@ -18,6 +21,7 @@ export default function (eleventyConfig) {
   return {
     dir: {
       input: 'src',
+      output: 'docs'
     },
   };
 };

@@ -4,42 +4,45 @@ title: "Robert Bossaert"
 description: "Passionate software engineer and code tinkerer."
 ---
 <div class="container max-w-2xl">
-  <a href="/" class="block py-12">
-    <img src="./assets/images/photo.jpeg" class="rounded-full h-16 w-16 p" alt="">
-  </a>
+  <header class="flex flex-row items-center justify-between py-12">
+    <a href="/">
+      <img src="./assets/images/photo.jpeg" class="h-16 rounded-full w-16" alt="">
+    </a>
+    {{ collections.all | eleventyNavigation | eleventyNavigationToHtml }}
+  </header>
   <section class="pb-12">
-    <h1 class="font-bold">Hi, I'm Robert Bossaert</h1>
+    <h1 class="font-bold mb-2 text-xl">Hi, I'm Robert Bossaert</h1>
     <p>Passionate software engineer and code tinkerer.</p>
   </section>
   <section class="pb-12">
-    <h2 class="text-neutral-400 mb-4">My other sites</h2>
-    <div class="border-neutral-800 border-2 rounded-xl py-3 px-4">
-      <ul class="flex flex-col space-y-2">
+    <h2 class="mb-4 text-slate-400">My other sites</h2>
+    <div>
+      <ul class="flex flex-row space-x-2">
         <li>
-          <a href="https://www.verdant.studio" class="hover:text-neutral-400">
+          <a href="https://www.verdant.studio" class="border-2 border-slate-800 block hover:bg-slate-950 hover:text-slate-100 rounded-xl px-4 py-3">
             verdant.studio
           </a>
         </li>
         <li>
-          <a href="https://www.vupport.com" class="hover:text-neutral-400">
-            vupport.com
+          <a href="https://www.wpsitesmonitor.com" class="border-2 border-slate-800 block hover:bg-slate-950 hover:text-slate-100 rounded-xl px-4 py-3">
+            wpsitesmonitor.com
           </a>
         </li>
       </ul>
     </div>
   </section>
   <section>
-    <h2 class="text-neutral-400 mb-4">Recently read</h2>
-    <div class="border-neutral-800 border-2 rounded-xl py-3 px-4">
-      <ul class="flex flex-col space-y-2 mb-4">
-        <li class="border-b-2 border-neutral-800 pb-3 mb-3">
+    <h2 class="mb-4 text-slate-400">Recently read</h2>
+    <div class="border-2 border-slate-800 rounded-xl px-4 py-3">
+      <ul class="flex flex-col mb-4 space-y-2">
+        <li class="border-b-2 border-slate-800 mb-3 pb-3">
           Radical Candor: Be a Kick-Ass Boss Without Losing Your Humanity
         </li>
-        <li class="border-b-2 border-neutral-800 pb-3 mb-3">
+        <li class="border-b-2 border-slate-800 mb-3 pb-3">
           Radical Candor: Be a Kick-Ass Boss Without Losing Your Humanity
         </li>
       </ul>
-      <a href="/" class="bg-neutral-200 block hover:bg-neutral-300 p-3 rounded-xl text-center text-neutral-900 text-sm w-full">
+      <a href="/recently-read" class="bg-slate-200 block hover:bg-slate-300 p-3 rounded-xl text-center text-slate-900 text-sm w-full">
         View more &rarr;
       </a>
     </div>

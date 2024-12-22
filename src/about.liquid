@@ -1,0 +1,26 @@
+---
+layout: default
+title: "About - Robert Bossaert"
+description: "Passionate software engineer and code tinkerer."
+eleventyNavigation:
+    key: About
+---
+<div class="container max-w-2xl">
+    <header class="flex flex-row items-center justify-between py-12">
+        <a href="/">
+            <img src="./assets/images/photo.jpeg" class="h-16 rounded-full w-16" alt="">
+        </a>
+        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml }}
+    </header>
+    <section class="tracking-normal">
+        <h1 class="font-bold mb-4 text-xl">About</h1>
+        <div class="flex flex-col space-y-6">
+            <p>My name is Robert Bossaert — I work as CTO for Yard | Digital Agency, where we specialize in building enterprise grade websites (WordPress) as well as community platforms and applications (Symfony) for organizations with a social mission.</p>
+            <h2 class="font-bold text-lg">Previous gigs</h2>
+            <p>In the past I have worked for large entities such as telecommunication companies and broadcasting organizations. Places where I've learned a lot about programming and building teams.</p>
+            <p>I am currently mostly invested in WordPress and Laravel but have worked with other programming languages and frameworks as well, I enjoy learning and experimenting with code.</p>
+            <h2 class="font-bold text-lg">About this website</h2>
+            <p>This website serves as a simple <em>about</em> and a page to display my personal projects. Thank you for stopping by!</p>
+        </div>
+    </section>
+</div>
