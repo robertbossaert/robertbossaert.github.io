@@ -4,43 +4,43 @@ title: "Robert Bossaert"
 description: "Passionate software engineer and code tinkerer."
 ---
 <div class="container max-w-2xl">
-  <header class="flex flex-row items-center justify-between py-12">
-    <a href="/">
-      <img src="./assets/images/photo.jpeg" class="h-16 rounded-full w-16" alt="">
-    </a>
-    {{ collections.all | eleventyNavigation | eleventyNavigationToHtml }}
-  </header>
-  <section class="pb-12">
-    <h1 class="font-bold mb-2 text-xl">Hi, I'm Robert Bossaert</h1>
-    <p>Passionate software engineer and code tinkerer.</p>
-  </section>
-  <section class="pb-12">
-    <h2 class="mb-4 text-slate-400">My other sites</h2>
-    <div>
-      <ul class="flex flex-row space-x-2">
-        {% for site in sites %}
-          <li>
-            <a href="{{ site.url }}" class="border-2 border-slate-800 block hover:bg-slate-950 hover:text-slate-100 rounded-xl px-4 py-3">
-              {{ site.name }}
+    <header class="flex flex-row items-center justify-between py-12">
+        <a href="/">
+            <img src="./assets/images/photo.jpeg" class="h-16 rounded-full w-16" alt="">
+        </a>
+        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml }}
+    </header>
+    <section class="pb-12">
+        <h1 class="font-bold mb-2 text-xl">Hi, I'm Robert Bossaert</h1>
+        <p>Passionate software engineer and code tinkerer.</p>
+    </section>
+    <section class="pb-12">
+        <h2 class="mb-4 text-slate-400">My other sites</h2>
+        <div>
+            <ul class="flex flex-row space-x-2">
+                {% for site in sites %}
+                    <li>
+                        <a href="{{ site.url }}" class="border-2 border-slate-800 block hover:bg-slate-950 hover:text-slate-100 rounded-xl px-4 py-3">
+                            {{ site.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+    <section>
+        <h2 class="mb-4 text-slate-400">Recently read</h2>
+        <div class="border-2 border-slate-800 rounded-xl px-4 py-3">
+            <ul class="flex flex-col mb-4 space-y-2">
+                {% for book in books %}
+                    <li class="border-b-2 border-slate-800 mb-3 pb-3">
+                        {{ book.name }}
+                    </li>
+                {% endfor %}
+            </ul>
+            <a href="/recently-read" class="bg-slate-200 block hover:bg-slate-300 p-3 rounded-xl text-center text-slate-900 text-sm w-full">
+                View more &rarr;
             </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </section>
-  <section>
-    <h2 class="mb-4 text-slate-400">Recently read</h2>
-    <div class="border-2 border-slate-800 rounded-xl px-4 py-3">
-      <ul class="flex flex-col mb-4 space-y-2">
-        {% for book in books %}
-          <li class="border-b-2 border-slate-800 mb-3 pb-3">
-            {{ book.name }}
-          </li>
-        {% endfor %}
-      </ul>
-      <a href="/recently-read" class="bg-slate-200 block hover:bg-slate-300 p-3 rounded-xl text-center text-slate-900 text-sm w-full">
-        View more &rarr;
-      </a>
-    </div>
-  </section>
+        </div>
+    </section>
 </div>

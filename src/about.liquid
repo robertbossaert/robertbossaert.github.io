@@ -10,7 +10,14 @@ eleventyNavigation:
         <a href="/">
             <img src="./assets/images/photo.jpeg" class="h-16 rounded-full w-16" alt="">
         </a>
-        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml }}
+        {% assign navPages = collections.all | eleventyNavigation %}
+        <ul>
+            {%- for entry in navPages %}
+                <li{% if entry.url == page.url %} class="underline underline-offset-2"{% endif %}>
+                    <a href="{{ entry.url }}">{{ entry.title }}</a>
+                </li>
+            {%- endfor %}
+        </ul>
     </header>
     <section class="tracking-normal">
         <h1 class="font-bold mb-4 text-xl">About</h1>
@@ -20,7 +27,7 @@ eleventyNavigation:
             <p>In the past I have worked for large entities such as telecommunication companies and broadcasting organizations. Places where I've learned a lot about programming and building teams.</p>
             <p>I am currently mostly invested in WordPress and Laravel but have worked with other programming languages and frameworks as well, I enjoy learning and experimenting with code.</p>
             <h2 class="font-bold text-lg">About this website</h2>
-            <p>This website serves as a simple <em>about</em> and a page to display my personal projects. Thank you for stopping by!</p>
+            <p>This website serves as a simple <em>about me</em> site and a page to display my personal projects. Thank you for stopping by!</p>
         </div>
     </section>
 </div>
