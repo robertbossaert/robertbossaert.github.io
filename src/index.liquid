@@ -17,7 +17,7 @@ description: "Passionate software engineer and code tinkerer."
     <section class="pb-12">
         <h2 class="mb-4 text-slate-400">My other sites</h2>
         <div>
-            <ul class="flex flex-row space-x-2">
+            <ul class="flex flex-col md:flex-row md:space-x-2 md:space-y-0 space-y-2">
                 {% for site in sites %}
                     <li>
                         <a href="{{ site.url }}" class="border-2 border-slate-800 block hover:bg-slate-950 hover:text-slate-100 rounded-xl px-4 py-3">
@@ -43,4 +43,5 @@ description: "Passionate software engineer and code tinkerer."
             </a>
         </div>
     </section>
+    <footer class="h-16"></footer>
 </div>
