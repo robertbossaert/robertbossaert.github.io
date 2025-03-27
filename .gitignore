@@ -1,6 +1,8 @@
 # Files
 .DS_Store
+styles.css
 
 # Folders
 __pycache__
+node_modules
 output

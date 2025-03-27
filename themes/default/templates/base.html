@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html class="overflow-y-scroll" lang="{{ DEFAULT_LANG }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
+    <title>{{ SITENAME }}{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}" />
+  </head>
+  <body class="bg-slate-900 text-slate-200">
+    <div class="container max-w-2xl">
+      <header class="flex flex-row items-center justify-between py-12">
+          <a href="{{ SITEURL }}">
+              <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/photo.jpeg" class="w-16 h-16 rounded-full" alt="">
+          </a>
+          {% for title, link in MENUITEMS %}
+            <a href="{{ link }}">{{ (title) }}</a>
+          {% endfor %}
+      </header>
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
