@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
     <title>{{ SITENAME }}{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}" />
+    {% block meta %}
+    <meta name="author" content="{{ AUTHOR }}" />
+    <meta name="description" content="{{ SITE_DESCRIPTION }}" />
+    {% include "partials/og.html" %}
+    {% endblock %}
   </head>
   <body class="bg-slate-900 text-slate-200">
     <div class="container max-w-2xl">
@@ -15,6 +20,14 @@
           {% for title, link in MENUITEMS %}
             <a href="{{ link }}">{{ (title) }}</a>
           {% endfor %}
+
+          {% if FEED_ALL_ATOM %}
+            <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">{{ Atom }}</a>
+          {% endif %}
+
+          {% if FEED_ALL_RSS %}
+            <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}">{{ RSS }}</a>
+          {% endif %}
       </header>
       {% block content %}
       {% endblock %}

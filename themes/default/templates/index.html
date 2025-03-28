@@ -8,32 +8,51 @@
 </section>
 
 <section class="pb-12">
-  <h2 class="mb-4 text-slate-400">My other sites</h2>
-  <div>
-      <ul class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
-          {% for site in SITES %}
-              <li>
-                  <a href="{{ site.url }}" class="block px-4 py-3 border-2 border-slate-800 hover:bg-slate-950 hover:text-slate-100 rounded-xl">
-                      {{ site.name }}
-                  </a>
-              </li>
-          {% endfor %}
-      </ul>
+  <h2 class="mb-4 text-slate-400">Articles</h2>
+  <div class="px-4 py-3 border-2 border-slate-800 rounded-xl">
+    <ul class="flex flex-col mb-4 space-y-2">
+      {% for article in articles_page.object_list %}
+      <li>
+        <a href="{{ article.url }}" class="block pb-3 mb-3 border-b-2 border-slate-800">
+          {{ article.title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="{{ SITEURL }}/archives" class="block w-full p-3 text-sm text-center bg-slate-700 hover:bg-slate-800 rounded-xl text-slate-300">
+      View more &rarr;
+    </a>
   </div>
 </section>
-<section>
+
+<section class="pb-12">
   <h2 class="mb-4 text-slate-400">Recently read</h2>
   <div class="px-4 py-3 border-2 border-slate-800 rounded-xl">
-      <ul class="flex flex-col mb-4 space-y-2">
-          {% for book in BOOKS %}
-              <li class="pb-3 mb-3 border-b-2 border-slate-800">
-                  {{ book.name }}
-              </li>
-          {% endfor %}
-      </ul>
-      <a href="/recently-read" class="block w-full p-3 text-sm text-center bg-slate-700 hover:bg-slate-800 rounded-xl text-slate-300">
-          View more &rarr;
-      </a>
+    <ul class="flex flex-col mb-4 space-y-2">
+      {% for book in BOOKS %}
+        <li class="pb-3 mb-3 border-b-2 border-slate-800">
+          {{ book.name }}
+        </li>
+      {% endfor %}
+    </ul>
+    <a href="{{ SITEURL }}/recently-read" class="block w-full p-3 text-sm text-center bg-slate-700 hover:bg-slate-800 rounded-xl text-slate-300">
+      View more &rarr;
+    </a>
+  </div>
+</section>
+
+<section class="pb-12">
+  <h2 class="mb-4 text-slate-400">My other sites</h2>
+  <div>
+    <ul class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+      {% for site in SITES %}
+        <li>
+          <a href="{{ site.url }}" class="block px-4 py-3 border-2 border-slate-800 hover:bg-slate-950 hover:text-slate-100 rounded-xl" target="_blank">
+            {{ site.name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 </section>
 

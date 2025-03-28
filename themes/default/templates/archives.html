@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} &ndash; Archives{% endblock %}
+
+{% block content %}
+<section class="tracking-normal">
+  <h1 class="mb-4 text-xl font-bold">Archives</h1>
+  <div class="wysiwyg">
+    <dl class="flex flex-col space-y-2">
+      {% set previous_date = False %}
+
+      {% for article in dates %}
+        {% if article.locale_date != previous_date %}
+          {% set previous_date = article.locale_date %}
+          <dt class="text-lg font-bold">{{ article.locale_date }}</dt>
+        {% endif %}
+
+        <dd class="pl-4">
+          <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+        </dd>
+      {% endfor %}
+    </dl>
+  </div>
+</section>
+{% endblock %}

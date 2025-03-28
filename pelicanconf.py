@@ -5,13 +5,16 @@ import yaml
 
 AUTHOR = "Robert Bossaert"
 SITENAME = "Robert Bossaert"
+SITE_DESCRIPTION = "Passionate software engineer and code tinkerer."
 SITEURL = '{}'.format(os.getenv('SITEURL', 'http://localhost:{}'.format(os.getenv('PORT', '8000'))))
 
 PATH = "content"
 
-TIMEZONE = "Europe/Amsterdam"
-
+# Date / time
 DEFAULT_LANG = "en"
+DEFAULT_DATE_FORMAT = "%B %d, %Y"
+LOCALE = "en_US"
+TIMEZONE = "Europe/Amsterdam"
 
 # Theme settings
 THEME= "themes/default"
@@ -24,9 +27,14 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-MENUITEMS = (('About', '/about.html'),
-            ('About', '/about.html'),
-            ('Tags', '/tags.html'),)
+MENUITEMS = (('About', '/about'),
+            ('Archives', '/archives'),
+            ('Categories', '/categories'),
+            ('Atom', '/categories'),)
+
+# Article settings
+ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 
 # Social widget
 SOCIAL = (

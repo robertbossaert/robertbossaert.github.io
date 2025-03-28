@@ -1,2 +1,10 @@
 {% extends "base.html" %}
 
+{% block content %}
+<section class="tracking-normal">
+  <h1 class="mb-4 text-xl font-bold">About</h1>
+  <div class="wysiwyg">
+    {% block page_content %}{{ page.content }}{% endblock %}
+  </div>
+</section>
+{% endblock %}
