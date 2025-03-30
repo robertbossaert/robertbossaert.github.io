@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="tracking-normal">
+  <h1 class="mb-4 text-xl font-bold">{{ page.title }}</h1>
+  <div class="wysiwyg">
+    {% block page_content %}{{ page.content }}{% endblock %}
+
+    <div class="px-4 py-3 border-2 border-slate-800 rounded-xl">
+      <ul class="flex flex-col space-y-3">
+        {% for book in BOOKS %}
+          <li class="{% if not loop.last %}border-b-2 border-slate-800 pb-3{% endif %}">
+            {{ book.name }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}

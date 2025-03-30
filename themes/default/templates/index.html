@@ -4,16 +4,16 @@
 
 <section class="pb-12">
   <h1 class="mb-2 text-xl font-bold">Hi, I'm Robert Bossaert</h1>
-  <p>Passionate software engineer and code tinkerer.</p>
+  <p>{{ SITEDESCRIPTION }}</p>
 </section>
 
 <section class="pb-12">
   <h2 class="mb-4 text-slate-400">Articles</h2>
   <div class="px-4 py-3 border-2 border-slate-800 rounded-xl">
-    <ul class="flex flex-col mb-4 space-y-2">
+    <ul class="flex flex-col mb-4 space-y-3">
       {% for article in articles_page.object_list %}
-      <li>
-        <a href="{{ article.url }}" class="block pb-3 mb-3 border-b-2 border-slate-800">
+      <li class="pb-3 border-b-2 border-slate-800">
+        <a href="{{ article.url }}" class="block">
           {{ article.title }}
         </a>
       </li>
@@ -28,9 +28,9 @@
 <section class="pb-12">
   <h2 class="mb-4 text-slate-400">Recently read</h2>
   <div class="px-4 py-3 border-2 border-slate-800 rounded-xl">
-    <ul class="flex flex-col mb-4 space-y-2">
+    <ul class="flex flex-col mb-4 space-y-3">
       {% for book in BOOKS %}
-        <li class="pb-3 mb-3 border-b-2 border-slate-800">
+        <li class="pb-3 border-b-2 border-slate-800">
           {{ book.name }}
         </li>
       {% endfor %}

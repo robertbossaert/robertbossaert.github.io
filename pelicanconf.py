@@ -4,9 +4,9 @@ import os
 import yaml
 
 AUTHOR = "Robert Bossaert"
-SITENAME = "Robert Bossaert"
-SITE_DESCRIPTION = "Passionate software engineer and code tinkerer."
 SITEURL = '{}'.format(os.getenv('SITEURL', 'http://localhost:{}'.format(os.getenv('PORT', '8000'))))
+SITENAME = "Robert Bossaert"
+SITEDESCRIPTION = "Passionate software engineer and code tinkerer."
 
 PATH = "content"
 
@@ -35,6 +35,10 @@ MENUITEMS = (('About', '/about'),
 # Article settings
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+
+# Disable tags
+TAGS_SAVE_AS = ''
+TAG_SAVE_AS = ''
 
 # Social widget
 SOCIAL = (

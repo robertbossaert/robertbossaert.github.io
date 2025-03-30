@@ -1,6 +1,6 @@
 Title: About
 Slug: about
-Date: 2024-03-27
+Date: 2025-03-27
 Save_as: about.html
 
 Hi, I'm Robert Bossaert — the CTO at Yard | Digital Agency. I lead our efforts to craft enterprise-grade websites using WordPress and develop community platforms and applications with Symfony, focusing on supporting organizations with a social mission.

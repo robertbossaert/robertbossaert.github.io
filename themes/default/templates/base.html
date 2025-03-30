@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
     <title>{{ SITENAME }}{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}" />
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/monokai.min.css">
     {% block meta %}
     <meta name="author" content="{{ AUTHOR }}" />
-    <meta name="description" content="{{ SITE_DESCRIPTION }}" />
+    <meta name="description" content="{{ SITEDESCRIPTION }}" />
     {% include "partials/og.html" %}
     {% endblock %}
   </head>

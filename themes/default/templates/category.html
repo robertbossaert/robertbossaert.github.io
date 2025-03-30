@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %} &ndash; Category: {{ category }}{% endblock %}
+
+{% block content %}
+<section class="tracking-normal">
+  <h1 class="mb-4 text-xl font-bold">Category: {{ category }}</h1>
+  <div class="px-4 py-3 border-2 border-slate-800 rounded-xl">
+    <ul class="flex flex-col space-y-3">
+      {% for article in articles_page.object_list %}
+      <li class="{% if not loop.last %}border-b-2 border-slate-800 pb-3{% endif %}">
+        <a href="{{ SITEURL }}/{{ article.url }}" class="block">
+          {{ article.title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}

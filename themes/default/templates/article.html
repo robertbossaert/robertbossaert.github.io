@@ -10,19 +10,35 @@
 {% block title %} &ndash; {{ article.title|striptags|escape }}{% endblock %}
 
 {% block content %}
-<article class="tracking-normal">
+<article>
   <header>
-
+    <div class="mb-4 space-y-2 text-sm">
+      <div class="flex flex-row space-x-2">
+        {% include "partials/icon-clock.html" %}
+        <span>
+          Published on <time datetime="{{ article.locale_date }}" itemprop="datePublished">{{ article.locale_date }}</time>
+        </span>
+      </div>
+      {% if article.modified %}
+      <div class="flex flex-row space-x-2">
+        {% include "partials/icon-clock.html" %}
+        <span>
+          Modified on <time datetime="{{ article.modified }}" itemprop="dateModified">{{ article.modified.strftime('%B %d, %Y') }}</time>
+        </span>
+      </div>
+      {% endif %}
+      <div class="flex flex-row space-x-2">
+        {% include "partials/icon-folder.html" %}
+        <span>
+          Category: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+        </span>
+      </div>
+    </div>
   </header>
+
   <h1 class="mb-4 text-xl font-bold">{{ article.title }}</h1>
-  <div class="flex flex-col space-y-6">
-    <ul>
-      {% for category, articles in categories|sort %}
-      <li>
-        <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> ({{ articles|count }})
-      </li>
-      {% endfor %}
-    </ul>
+  <div class="wysiwyg">
+    {{ article.content }}
   </div>
 </article>
 {% endblock %}
