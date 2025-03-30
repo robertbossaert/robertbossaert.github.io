@@ -40,6 +40,10 @@ ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 TAGS_SAVE_AS = ''
 TAG_SAVE_AS = ''
 
+# Disable authors
+AUTHORS_SAVE_AS = ''
+AUTHOR_SAVE_AS = ''
+
 # Social widget
 SOCIAL = (
     ("You can add links in your config file", "#"),
