@@ -8,7 +8,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Allow GitHub Actions to push to gh-pages
+      contents: write
 
     steps:
       - name: Checkout repository
@@ -43,4 +43,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: output  # Ensure this matches your Pelican output folder
+          folder: output
