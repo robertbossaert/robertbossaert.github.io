@@ -9,3 +9,7 @@
         @apply text-lg font-bold;
     }
 }
+
+.highlight {
+    @apply p-4 overflow-x-auto;
+}

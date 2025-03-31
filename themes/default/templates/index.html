@@ -27,17 +27,14 @@
 
 <section class="pb-12">
   <h2 class="mb-4 text-slate-400">Recently read</h2>
-  <div class="px-4 py-3 border-2 border-slate-800 rounded-xl">
-    <ul class="flex flex-col mb-4 space-y-3">
+  <div class="px-4 py-3 border-2 bg-slate-900 border-slate-800 rounded-xl">
+    <ul class="flex flex-col space-y-2">
       {% for book in BOOKS %}
-        <li class="pb-3 border-b-2 border-slate-800">
+        <li class="{% if not loop.last %}border-b-2 border-slate-900 pb-3{% endif %} text-slate-400 text-sm">
           {{ book.name }}
         </li>
       {% endfor %}
     </ul>
-    <a href="{{ SITEURL }}/recently-read" class="block w-full p-3 text-sm text-center bg-slate-700 hover:bg-slate-800 rounded-xl text-slate-300">
-      View more &rarr;
-    </a>
   </div>
 </section>
 

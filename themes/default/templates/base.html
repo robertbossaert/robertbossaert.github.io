@@ -14,24 +14,27 @@
   </head>
   <body class="bg-slate-900 text-slate-200">
     <div class="container max-w-2xl">
-      <header class="flex flex-row items-center justify-between py-12">
-          <a href="{{ SITEURL }}">
+      <header class="flex flex-col items-center justify-between py-6 md:py-12 md:flex-row">
+          <a href="{{ SITEURL }}" class="mb-4 md:mb-0">
               <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/photo.jpeg" class="w-16 h-16 rounded-full" alt="">
           </a>
-          {% for title, link in MENUITEMS %}
-            <a href="{{ link }}">{{ (title) }}</a>
-          {% endfor %}
+          <nav class="flex flex-row justify-between w-full py-4 md:w-3/5">
+            {% for title, link in MENUITEMS %}
+              <a href="{{ link }}">{{ (title) }}</a>
+            {% endfor %}
 
-          {% if FEED_ALL_ATOM %}
-            <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">{{ Atom }}</a>
-          {% endif %}
+            {% if FEED_ALL_ATOM %}
+              <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">{{ Atom }}</a>
+            {% endif %}
 
-          {% if FEED_ALL_RSS %}
-            <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}">{{ RSS }}</a>
-          {% endif %}
+            {% if FEED_ALL_RSS %}
+              <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}">{{ RSS }}</a>
+            {% endif %}
+          </nav>
       </header>
       {% block content %}
       {% endblock %}
+      <footer class="h-16"></footer>
     </div>
   </body>
 </html>
