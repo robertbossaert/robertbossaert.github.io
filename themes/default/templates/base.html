@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
     <title>{{ SITENAME }}{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}" />
+    {% assets filters="cssmin", output="css/styles.min.css", "css/styles.css" %}
+      <link rel="stylesheet" href="{{SITEURL}}/{{ASSET_URL}}" />
+    {% endassets %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/monokai.min.css">
     {% block meta %}
     <meta name="author" content="{{ AUTHOR }}" />
