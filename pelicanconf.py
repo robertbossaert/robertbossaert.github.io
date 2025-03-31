@@ -3,21 +3,21 @@ from collections import namedtuple
 import os
 import yaml
 
-AUTHOR = "Robert Bossaert"
+AUTHOR = 'Robert Bossaert'
 SITEURL = '{}'.format(os.getenv('SITEURL', 'http://localhost:{}'.format(os.getenv('PORT', '8000'))))
-SITENAME = "Robert Bossaert"
-SITEDESCRIPTION = "Passionate software engineer and code tinkerer."
+SITENAME = 'Robert Bossaert'
+SITEDESCRIPTION = 'Passionate software engineer and code tinkerer.'
 
-PATH = "content"
+PATH = 'content'
 
 # Date / time
-DEFAULT_LANG = "en"
-DEFAULT_DATE_FORMAT = "%B %d, %Y"
-LOCALE = "en_US"
-TIMEZONE = "Europe/Amsterdam"
+DEFAULT_LANG = 'en'
+DEFAULT_DATE_FORMAT = '%B %d, %Y'
+LOCALE = 'en_US'
+TIMEZONE = 'Europe/Amsterdam'
 
 # Theme settings
-THEME= "themes/default"
+THEME= 'themes/default'
 CSS_FILE = 'styles.css'
 
 # Feed generation is usually not desired when developing
@@ -27,9 +27,9 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-MENUITEMS = (('About', '/about'),
-            ('Archives', '/archives'),
-            ('Categories', '/categories'))
+MENUITEMS = (('About', '/about/'),
+            ('Archives', '/archives/'),
+            ('Categories', '/categories/'))
 
 # Article settings
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
@@ -43,10 +43,16 @@ TAG_SAVE_AS = ''
 AUTHORS_SAVE_AS = ''
 AUTHOR_SAVE_AS = ''
 
+# Category & categories
+CATEGORY_URL = 'category/{slug}/'
+CATEGORY_SAVE_AS = 'category/{slug}/index.html'
+CATEGORIES_URL = 'categories/'
+CATEGORIES_SAVE_AS = 'categories/index.html'
+
 # Social widget
 SOCIAL = (
-    ("You can add links in your config file", "#"),
-    ("Another social link", "#"),
+    ('You can add links in your config file', '#'),
+    ('Another social link', '#'),
 )
 
 DEFAULT_PAGINATION = 10
