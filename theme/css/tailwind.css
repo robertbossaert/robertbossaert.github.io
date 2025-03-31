@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.wysiwyg {
+    @apply flex flex-col space-y-6;
+
+    h2 {
+        @apply text-lg font-bold;
+    }
+}
+
+.highlight {
+    @apply p-4 overflow-x-auto;
+}
