@@ -27,16 +27,16 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-MENUITEMS = (('About', '/about/'),
-            ('Archives', '/archives/'),
-            ('Categories', '/categories/'))
+MENUITEMS = (('About', '/about'),
+            ('Archives', '/archives'),
+            ('Categories', '/categories'))
 
 # Article settings
-ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 
 # Pages
-PAGE_URL = '{slug}/'
+PAGE_URL = '{slug}'
 PAGE_SAVE_AS = '{slug}/index.html'
 
 # Disable tags
@@ -48,9 +48,9 @@ AUTHORS_SAVE_AS = ''
 AUTHOR_SAVE_AS = ''
 
 # Category & categories
-CATEGORY_URL = 'category/{slug}/'
+CATEGORY_URL = 'category/{slug}'
 CATEGORY_SAVE_AS = 'category/{slug}/index.html'
-CATEGORIES_URL = 'categories/'
+CATEGORIES_URL = 'categories'
 CATEGORIES_SAVE_AS = 'categories/index.html'
 
 # Social widget
