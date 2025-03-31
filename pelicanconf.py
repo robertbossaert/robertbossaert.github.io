@@ -29,8 +29,7 @@ AUTHOR_FEED_RSS = None
 
 MENUITEMS = (('About', '/about'),
             ('Archives', '/archives'),
-            ('Categories', '/categories'),
-            ('Atom', '/categories'),)
+            ('Categories', '/categories'))
 
 # Article settings
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
