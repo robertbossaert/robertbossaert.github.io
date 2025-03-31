@@ -35,6 +35,10 @@ MENUITEMS = (('About', '/about/'),
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 
+# Pages
+PAGE_URL = 'pages/{slug}/'
+PAGE_SAVE_AS = 'pages/{slug}/index.html'
+
 # Disable tags
 TAGS_SAVE_AS = ''
 TAG_SAVE_AS = ''
