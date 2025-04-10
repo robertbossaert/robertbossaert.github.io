@@ -6,10 +6,10 @@
 <section class="tracking-normal">
   <h1 class="mb-4 text-xl font-bold">Categories</h1>
   <div class="flex flex-col space-y-6">
-    <ul>
+    <ul class="flex space-x-2">
       {% for category, articles in categories|sort %}
       <li>
-        <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> ({{ articles|count }})
+        <a class="block px-4 py-3 border-2 border-slate-800 hover:bg-slate-950 hover:text-slate-100 rounded-xl" href="{{ SITEURL }}/{{ category.url }}">{{ category }} ({{ articles|count }})</a>
       </li>
       {% endfor %}
     </ul>
