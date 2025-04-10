@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
     <title>Robert Bossaert &ndash; Convert Excel redirects to NGINX with Python</title>
-      <link rel="stylesheet" href="https://www.robertbossaert.com/theme/css/styles.min.css?05571b4a" />
+      <link rel="stylesheet" href="https://www.robertbossaert.com/theme/css/styles.min.css?4baac207" />
     <link rel="stylesheet" href="https://www.robertbossaert.com/theme/css/pygments/monokai.min.css">
 <meta name="author" content="Robert Bossaert" />
 <meta name="description" content="A quick guide to converting Excel-based redirect lists into NGINX 301 rules using a simple Python script." />
@@ -63,7 +63,7 @@
 <h2>Python script</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;redirects.xlsx&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;redirects.xlsx&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="n">old</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -95,8 +95,10 @@ pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w">
 </code></pre></div>
 
 <p>This will output something along the lines of:</p>
-<p>rewrite ^/old-page$ /new-page permanent;
-rewrite ^/about$ /company/about permanent;</p>
+<div class="highlight"><pre><span></span><code>rewrite ^/old-page$ /new-page permanent;
+rewrite ^/about$ /company/about permanent;
+</code></pre></div>
+
 <p>But if you want you can also save the result to a file by redirecting the output:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>convert_redirects.py<span class="w"> </span>&gt;<span class="w"> </span>redirects.conf
 </code></pre></div>
