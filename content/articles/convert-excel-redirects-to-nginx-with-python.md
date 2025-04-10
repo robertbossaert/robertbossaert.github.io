@@ -16,7 +16,7 @@ Below is a quick Python script I use to convert an .xlsx file into a list of NGI
 ```python
 import pandas as pd
 
-df = pd.read_excel("redirects.xlsx")
+df = pd.read_excel('redirects.xlsx')
 
 for index, row in df.iterrows():
     old = str(row.iloc[0]).strip()
@@ -55,8 +55,10 @@ python convert_redirects.py
 
 This will output something along the lines of:
 
+```txt
 rewrite ^/old-page$ /new-page permanent;
 rewrite ^/about$ /company/about permanent;
+```
 
 But if you want you can also save the result to a file by redirecting the output:
 

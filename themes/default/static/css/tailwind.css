@@ -8,6 +8,10 @@
     h2 {
         @apply text-lg font-bold;
     }
+
+    ul {
+        @apply pl-5 list-disc;
+    }
 }
 
 .highlight {
