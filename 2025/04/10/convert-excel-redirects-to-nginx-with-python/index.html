@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="overflow-y-scroll" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
+    <title>Robert Bossaert &ndash; Convert Excel redirects to NGINX with Python</title>
+      <link rel="stylesheet" href="https://www.robertbossaert.com/theme/css/styles.min.css?05571b4a" />
+    <link rel="stylesheet" href="https://www.robertbossaert.com/theme/css/pygments/monokai.min.css">
+<meta name="author" content="Robert Bossaert" />
+<meta name="description" content="A quick guide to converting Excel-based redirect lists into NGINX 301 rules using a simple Python script." />
+<meta name="keywords" content="">
+<meta property="article:published_time" content="2025-04-10 08:11:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.robertbossaert.com/author/robert-bossaert.html">
+<meta property="article:section" content="Python"/>
+<meta property="og:description" content="A quick guide to converting Excel-based redirect lists into NGINX 301 rules using a simple Python script."/>
+<meta property="og:image" content="">
+<meta property="og:locale" content=""/>
+<meta property="og:SITENAME" content="Robert Bossaert"/>
+<meta property="og:title" content="Convert Excel redirects to NGINX with Python"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://www.robertbossaert.com/2025/04/10/convert-excel-redirects-to-nginx-with-python"/>  </head>
+  <body class="bg-slate-900 text-slate-200">
+    <div class="container max-w-2xl">
+      <header class="flex flex-col items-center justify-between py-6 md:py-12 md:flex-row">
+          <a aria-label="Home" href="https://www.robertbossaert.com" class="mb-4 md:mb-0">
+              <img src="https://www.robertbossaert.com/theme/images/photo.jpeg" class="w-16 h-16 rounded-full" alt="">
+          </a>
+          <nav class="flex flex-row justify-between w-full py-4 md:w-3/5">
+              <a href="/about">About</a>
+              <a href="/archives">Archives</a>
+              <a href="/categories">Categories</a>
+
+              <a href="https://www.robertbossaert.com/feeds/all.atom.xml">Atom</a>
+
+          </nav>
+      </header>
+<article>
+  <header class="mb-8">
+    <div class="mb-4 space-y-2 text-sm">
+      <div class="flex flex-row space-x-2">
+<span class="flex items-center justify-center w-4 h-4">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+</span>        <span>
+          Published on <time datetime="April 10, 2025" itemprop="datePublished">April 10, 2025</time>
+        </span>
+      </div>
+      <div class="flex flex-row space-x-2">
+<span class="flex items-center justify-center w-4 h-4">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+</span>        <span>
+          Category: <a href="https://www.robertbossaert.com/category/python">Python</a>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <h1 class="mb-4 text-xl font-bold">Convert Excel redirects to NGINX with Python</h1>
+  <div class="wysiwyg">
+    <p>One of the tasks I often encounter as a developer is handling site migrations. A common part of that process is setting up URL redirects — and occasionally, a client provides us with an Excel file mapping old URLs to new ones.</p>
+<p>While Excel is great for organizing data, it’s not ideal when you need to quickly generate NGINX-compatible redirect rules. Thankfully, there’s a simple way to automate this.</p>
+<p>Below is a quick Python script I use to convert an .xlsx file into a list of NGINX rewrite directives for 301 (permanent) redirects.</p>
+<h2>Python script</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;redirects.xlsx&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">old</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">new</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;rewrite ^</span><span class="si">{</span><span class="n">old</span><span class="si">}</span><span class="s1">$ </span><span class="si">{</span><span class="n">new</span><span class="si">}</span><span class="s1"> permanent;&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This assumes your Excel file has:</p>
+<ul>
+<li>Column A: old relative path (e.g. /about)</li>
+<li>Column B: new relative path or absolute URL</li>
+</ul>
+<h2>Requirements</h2>
+<p>Before running the script, make sure you have the following installed:</p>
+<ul>
+<li>Python v3</li>
+<li>The <code>pandas</code> and <code>openpyxl</code> libraries</li>
+</ul>
+<p>You can install them in a virtual environment like so:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>~/virtualenvs/nginx-redirects
+<span class="nb">source</span><span class="w"> </span>~/virtualenvs/nginx-redirects/bin/activate
+
+pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>openpyxl
+</code></pre></div>
+
+<h2>Running the script</h2>
+<p>To execute the script:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>convert_redirects.py
+</code></pre></div>
+
+<p>This will output something along the lines of:</p>
+<p>rewrite ^/old-page$ /new-page permanent;
+rewrite ^/about$ /company/about permanent;</p>
+<p>But if you want you can also save the result to a file by redirecting the output:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>convert_redirects.py<span class="w"> </span>&gt;<span class="w"> </span>redirects.conf
+</code></pre></div>
+
+<p>You can then include this file in your NGINX configuration using:</p>
+<div class="highlight"><pre><span></span><code><span class="k">include</span><span class="w"> </span><span class="n">/etc/nginx/snippets/redirects.conf</span>;
+</code></pre></div>
+  </div>
+</article>
+      <footer class="h-16"></footer>
+    </div>
+  </body>
+</html>
