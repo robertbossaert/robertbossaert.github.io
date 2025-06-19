@@ -5,7 +5,7 @@ description: "Passionate software engineer and code tinkerer."
 ---
 <main class="container flex flex-col justify-center items-center min-h-screen mx-auto px-4">
     <header>
-        <img src="./assets/img/photo.png" class="h-30 mb-12 rounded-full w-30" alt="Photo of Robert Bossaert">
+        <img src="assets/img/photo.png" class="h-30 mb-12 rounded-full w-30" alt="Photo of Robert Bossaert">
     </header>
     <section class="flex flex-col space-y-12">
         <div>
@@ -13,12 +13,12 @@ description: "Passionate software engineer and code tinkerer."
             <p>{{ description }}</p>
         </div>
         <div>
-            <h2 class="font-bold mb-4 text-slate-400">You can find me on</h2>
+            <h2 class="font-bold mb-4 text-teal-400">You can find me on</h2>
             <div>
                 <ul class="flex flex-col md:flex-row md:space-x-2 md:space-y-0 space-y-2">
                     {% for platform in platforms %}
                         <li>
-                            <a aria-label="Visit {{ platform.name }}" href="{{ platform.url }}" target="_blank" class="border-2 border-slate-800 block hover:bg-slate-950 hover:text-slate-100 rounded-xl px-4 py-3 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-slate-500">
+                            <a aria-label="Visit {{ platform.name }}" href="{{ platform.url }}" target="_blank" class="border-2 border-teal-800 block hover:bg-teal-900 hover:text-teal-100 rounded-xl px-4 py-3 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-teal-500">
                                 {% include "assets/img/icon-{{ platform.name | downcase }}.svg" %}
                                 <span>{{ platform.name }}</span>
                             </a>
