@@ -1,0 +1,19 @@
+{
+  "name": "robertbossaert.github.io",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "keywords": [],
+  "author": "Robert Bossaert",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.1",
+    "@11ty/eleventy-plugin-vite": "^6.0.0",
+    "@tailwindcss/vite": "^4.1.10",
+    "tailwindcss": "^4.1.10"
+  }
+}
